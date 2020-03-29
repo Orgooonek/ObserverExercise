@@ -1,12 +1,7 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-public class Warehouse implements Subject{
+public class Warehouse extends Observable {
 
-    private Set<Consumer> consumers = new HashSet<>();
-    private Set<Producer> producers = new HashSet<>();
     private List<Integer> elements = new ArrayList<>();
     private int warehouseCapacity = 0;
 
@@ -36,25 +31,6 @@ public class Warehouse implements Subject{
     }
 
 
-    public void addProducer(Producer producer){
-        producers.add(producer);
-    }
 
-    public void addConsumer(Consumer consumer){
-        consumers.add(consumer);
-    }
 
-    @Override
-    public void notifyProducers() {
-        for(Producer p : producers){
-            p.update(this);
-        }
-    }
-
-    @Override
-    public void notifyConsumers() {
-        for(Consumer c : consumers){
-            c.update(this);
-        }
-    }
 }

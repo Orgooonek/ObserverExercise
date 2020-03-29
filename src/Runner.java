@@ -4,23 +4,22 @@ public class Runner {
 
         Warehouse warehouse = new Warehouse(10);
 
-        Producer producerA = new Producer("AProducer");
-        Producer producerB = new Producer("BProducer");
-        Producer producerC = new Producer("CProducer");
+        Producer producerA = new Producer(warehouse,"ProducerA");
 
-        Consumer consumerA = new Consumer("AConsumer");
-        Consumer consumerB = new Consumer("BConsumer");
-        Consumer consumerC = new Consumer("CConsumer");
+        Consumer consumerB = new Consumer(warehouse,"BConsumer");
 
-        warehouse.addProducer(producerA); warehouse.addProducer(producerB); warehouse.addProducer(producerC );
-        warehouse.addConsumer(consumerA); warehouse.addConsumer(consumerB); warehouse.addConsumer(consumerC);
+
+        warehouse.addObserver(producerA);
+
+        warehouse.addObserver(consumerB);
 
         while(true){
             if(warehouse.hasSpace()){
-                warehouse.notifyProducers();
+                producerA.update(warehouse,producerA);
+
             }
             if(warehouse.hasElements()){
-                warehouse.notifyConsumers();
+                consumerB.update(warehouse,consumerB);
             }
             sleep(1000);
         }
