@@ -1,4 +1,5 @@
 # ObserverExercise
+### Ćwiczenie 2 znajduje się na osobnym branchu o nazwie JDKInterfaces
 ## Pytania i odpowiedzi
 1. W opisanym systemie Producenci i Konsumenci są instancjami różnych klas. Czy istnieje
 możliwość stworzenia klasy, która mogłaby występować w obu tych rolach? Jeżeli tak, to jakich zmian wymagałoby to rozwiązanie?
